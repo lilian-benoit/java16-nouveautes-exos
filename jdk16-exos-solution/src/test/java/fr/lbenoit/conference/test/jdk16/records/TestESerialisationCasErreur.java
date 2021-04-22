@@ -27,6 +27,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import fr.lbenoit.conference.jdk16.records.Position;
@@ -34,7 +35,7 @@ import fr.lbenoit.conference.jdk16.records.serialisation.PositionClass;
 
 public class TestESerialisationCasErreur {
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void Serialiser() throws Exception {
 		try (FileOutputStream fos = new FileOutputStream("target/position.serial");
 				ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -44,7 +45,8 @@ public class TestESerialisationCasErreur {
 		Files.copy(Path.of("target/position.serial"), Path.of("target/position2.serial"));
 	}
 
-	@Test
+	@Test 
+	@Ignore("Test fonctionnant uniquement manuellement")
 	public void Deserialiser() throws Exception {
 		try (FileInputStream fis = new FileInputStream("target/position.serial");
 				ObjectInputStream ois = new ObjectInputStream(fis)) {

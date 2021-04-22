@@ -25,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import fr.lbenoit.conference.jdk16.records.Position;
@@ -45,6 +46,7 @@ public class TestDSerialisationCasNominal {
 	}
 
 	@Test
+	@Ignore("Test fonctionnant uniquement manuellement")
 	public void Deserialiser() throws Exception {
 		try (FileInputStream fis = new FileInputStream("target/position.serial");
 				ObjectInputStream ois = new ObjectInputStream(fis)) {

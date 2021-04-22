@@ -24,6 +24,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.junit.Test;
 
@@ -39,6 +41,7 @@ public class TestESerialisationCasErreur {
 			oos.writeObject(new PositionClass(250d, 2.352221)); // latitude incorrecte
 			oos.writeObject(new Position(245, -0.5800364)); // latitude incorrecte
 		}
+		Files.copy(Path.of("target/position.serial"), Path.of("target/position2.serial"));
 	}
 
 	@Test

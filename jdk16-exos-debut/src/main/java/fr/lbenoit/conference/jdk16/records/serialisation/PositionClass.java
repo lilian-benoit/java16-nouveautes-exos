@@ -33,9 +33,13 @@ public class PositionClass implements Serializable {
 
 	public PositionClass(double latitude, double longitude) {
 		super();
-		if (latitude > 90 || latitude < -90 || longitude > 90 || longitude < -90) {
-			throw new IllegalArgumentException(String.format("latitude et longitude doivent être comprises entre -90 et 90. (latitude : %f, longitude : %f)", latitude, longitude));
-		}
+		// Desactive par defaut
+		//
+//		if (latitude > 90 || latitude < -90 || longitude > 90 || longitude < -90) {
+//			throw new IllegalArgumentException(String.format(
+//					"latitude et longitude doivent être comprises entre -90 et 90. (latitude : %f, longitude : %f)",
+//					latitude, longitude));
+//		}
 		this.longitude = longitude;
 		this.latitude = latitude;
 	}

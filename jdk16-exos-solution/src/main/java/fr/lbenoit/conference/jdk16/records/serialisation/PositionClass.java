@@ -20,7 +20,6 @@ package fr.lbenoit.conference.jdk16.records.serialisation;
  * #L%
  */
 
-
 import java.io.Serializable;
 
 public class PositionClass implements Serializable {
@@ -33,8 +32,12 @@ public class PositionClass implements Serializable {
 
 	public PositionClass(double latitude, double longitude) {
 		super();
+		// Desactive par defaut
+		//
 		if (latitude > 90 || latitude < -90 || longitude > 90 || longitude < -90) {
-			throw new IllegalArgumentException(String.format("latitude et longitude doivent être comprises entre -90 et 90. (latitude : %f, longitude : %f)", latitude, longitude));
+			throw new IllegalArgumentException(String.format(
+					"latitude et longitude doivent être comprises entre -90 et 90. (latitude : %f, longitude : %f)",
+					latitude, longitude));
 		}
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -47,7 +50,7 @@ public class PositionClass implements Serializable {
 	public double getLatitude() {
 		return latitude;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "PositionClass [latitude=" + latitude + ", longitude=" + longitude + "]";
